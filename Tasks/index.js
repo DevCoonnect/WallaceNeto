@@ -3,7 +3,9 @@
  */
 
 import {AppRegistry} from 'react-native';
-import TaskList from './src/screens/TaskList/TaskList';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => TaskList);
+import Auth from './src/screens/Auth/Auth';
+// import TaskList from './src/screens/TaskList/TaskList';
+
+AppRegistry.registerComponent(appName, () => Auth);
