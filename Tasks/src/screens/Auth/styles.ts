@@ -1,4 +1,4 @@
-import {Platform, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 import commonStyles from '../../global/commonStyles';
 
@@ -23,20 +23,21 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   formContainer: {
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     padding: 10,
     width: '90%',
+    borderRadius: 7,
   },
   input: {
     marginTop: 10,
     backgroundColor: '#FFF',
-    padding: Platform.OS === 'ios' ? 15 : 10,
   },
   button: {
     backgroundColor: '#080',
     marginTop: 20,
     padding: 10,
     alignItems: 'center',
+    borderRadius: 7,
   },
   buttonText: {
     fontFamily: commonStyles.fontFamily,
