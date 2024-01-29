@@ -10,21 +10,44 @@ import {
 import backgroundImage from '../../../assets/imgs/login.jpg';
 import styles from './styles';
 import AuthInput from '../../components/AuthInput/AuthInput';
+import {server, showError, showSuccess} from '../../global/common';
+import axios from 'axios';
+
+const initialState = {
+  name: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+  stageNew: false,
+};
 
 export default class Auth extends Component {
-  state = {
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    stageNew: false,
-  };
+  state = {...initialState};
 
   signinOrSignup = () => {
     if (this.state.stageNew) {
-      Alert.alert('Sucesso!', 'Criar conta');
+      if (this.state.password === this.state.confirmPassword) {
+        this.signup();
+      } else {
+        Alert.alert('Senhas não batem');
+      }
     } else {
       Alert.alert('Sucesso!', 'Fazer login');
+    }
+  };
+
+  signup = async () => {
+    try {
+      await axios.post(`${server}/signup`, {
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,
+      });
+
+      showSuccess('Usuário cadastrado!');
+      this.setState({...initialState});
+    } catch (err) {
+      showError(err);
     }
   };
 
