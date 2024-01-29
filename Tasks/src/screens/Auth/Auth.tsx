@@ -13,6 +13,17 @@ import AuthInput from '../../components/AuthInput/AuthInput';
 import {server, showError, showSuccess} from '../../global/common';
 import axios from 'axios';
 
+type AuthProps = {
+  navigation: any;
+};
+type AuthState = {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  stageNew: boolean;
+};
+
 const initialState = {
   name: '',
   email: '',
@@ -21,8 +32,8 @@ const initialState = {
   stageNew: false,
 };
 
-export default class Auth extends Component {
-  state = {...initialState};
+export default class Auth extends Component<AuthProps, AuthState> {
+  state: AuthState = {...initialState};
 
   signinOrSignup = () => {
     if (this.state.stageNew) {
@@ -32,7 +43,7 @@ export default class Auth extends Component {
         Alert.alert('Senhas não batem');
       }
     } else {
-      Alert.alert('Sucesso!', 'Fazer login');
+      this.signin();
     }
   };
 
@@ -46,8 +57,22 @@ export default class Auth extends Component {
 
       showSuccess('Usuário cadastrado!');
       this.setState({...initialState});
-    } catch (err) {
-      showError(err);
+    } catch (e) {
+      showError(e);
+    }
+  };
+
+  signin = async () => {
+    try {
+      const res = await axios.post(`${server}/signin`, {
+        email: this.state.email,
+        password: this.state.password,
+      });
+
+      axios.defaults.headers.common.Authorization = `bearer ${res.data.token}`;
+      this.props.navigation.navigate('Home');
+    } catch (e) {
+      showError(e);
     }
   };
 
