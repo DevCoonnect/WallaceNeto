@@ -18,6 +18,8 @@ import todayImage from '../../../assets/imgs/today.jpg';
 import Task from '../../components/Task/Task';
 import {TaskType} from '../../global/types';
 import AddTask from '../AddTask/AddTask';
+import {server, showError} from '../../global/common';
+import axios from 'axios';
 
 type TaskListState = {
   showDoneTasks: boolean;
@@ -38,13 +40,22 @@ export default class TaskList extends Component {
 
   async componentDidMount() {
     const stateString = await AsyncStorage.getItem('tasksState');
-    let state = initialState;
+    const savedState = JSON.parse(stateString || '') || initialState;
+    this.setState({showDoneTasks: savedState.showDoneTasks}, this.filterTask);
 
-    if (stateString) {
-      state = JSON.parse(stateString) || initialState;
-    }
-    this.setState(state, this.filterTask);
+    this.loadTasks();
   }
+
+  loadTasks = async () => {
+    try {
+      const maxDate = moment().format('YYYY-MM-DD 23:59:59');
+      const res = await axios.get(`${server}/tasks?date=${maxDate}`);
+
+      this.setState({tasks: res.data}, this.filterTask);
+    } catch (e) {
+      showError(e);
+    }
+  };
 
   toggleFilter = () => {
     this.setState({showDoneTasks: !this.state.showDoneTasks}, this.filterTask);
@@ -52,47 +63,57 @@ export default class TaskList extends Component {
 
   filterTask = () => {
     let visibleTasks = null;
+
     if (this.state.showDoneTasks) {
       visibleTasks = [...this.state.tasks];
     } else {
-      const pending = (task: TaskType) => task.doneAt === undefined;
+      const pending = (task: TaskType) => task.doneAt === null;
       visibleTasks = this.state.tasks.filter(pending);
     }
 
     this.setState({visibleTasks});
-    AsyncStorage.setItem('tasksState', JSON.stringify(this.state));
+    AsyncStorage.setItem(
+      'tasksState',
+      JSON.stringify({
+        showDoneTasks: this.state.showDoneTasks,
+      }),
+    );
   };
 
-  toggleTask = (taskId: number) => {
-    const tasks = [...this.state.tasks];
-    tasks.forEach(task => {
-      if (task.id === taskId) {
-        task.doneAt = task.doneAt ? undefined : new Date();
-      }
-    });
-
-    this.setState({tasks}, this.filterTask);
+  toggleTask = async (taskId: number) => {
+    try {
+      await axios.put(`${server}/tasks/${taskId}/toggle`);
+      this.loadTasks();
+    } catch (e) {
+      showError(e);
+    }
   };
 
-  addTask = (newTask: TaskType) => {
+  addTask = async (newTask: TaskType) => {
     if (!newTask.desc.trim()) {
       Alert.alert('Dados inválidos', 'Descrição não informada');
       return;
     }
 
-    const tasks = [...this.state.tasks];
-    tasks.push({
-      id: newTask.id,
-      desc: newTask.desc,
-      estimateAt: newTask.estimateAt,
-    });
+    try {
+      await axios.post(`${server}/tasks`, {
+        desc: newTask.desc,
+        estimateAt: newTask.estimateAt,
+      });
 
-    this.setState({tasks, showAddTask: false}, this.filterTask);
+      this.setState({showAddTask: false}, this.loadTasks);
+    } catch (e) {
+      showError(e);
+    }
   };
 
-  deleteTask = (id: number) => {
-    const tasks = this.state.tasks.filter(task => task.id !== id);
-    this.setState({tasks}, this.filterTask);
+  deleteTask = async (taskId: number) => {
+    try {
+      await axios.delete(`${server}/tasks/${taskId}`);
+      this.loadTasks();
+    } catch (e) {
+      showError(e);
+    }
   };
 
   render() {

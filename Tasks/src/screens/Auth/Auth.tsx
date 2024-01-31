@@ -14,16 +14,25 @@ type AuthProps = {
   navigation: any;
 };
 
-const initialState = {
+// for development proposes
+const temporaryInitialState = {
   name: '',
-  email: '',
-  password: '',
+  email: 'ze@teste',
+  password: '123456',
   confirmPassword: '',
   stageNew: false,
 };
 
+// const initialState = {
+//   name: '',
+//   email: '',
+//   password: '',
+//   confirmPassword: '',
+//   stageNew: false,
+// };
+
 export default class Auth extends Component<AuthProps, UserAuth> {
-  state: UserAuth = {...initialState};
+  state: UserAuth = {...temporaryInitialState};
 
   signinOrSignup = () => {
     if (this.state.stageNew) {
@@ -42,7 +51,7 @@ export default class Auth extends Component<AuthProps, UserAuth> {
       });
 
       showSuccess('Usuário cadastrado!');
-      this.setState({...initialState});
+      this.setState({...temporaryInitialState});
     } catch (e) {
       showError(e);
     }
