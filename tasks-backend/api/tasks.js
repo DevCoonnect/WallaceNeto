@@ -6,6 +6,7 @@ module.exports = app => {
 
         app.db('tasks')
             .where({ userId: req.user.id })
+            .where('estimateAt', '<=', date)
             .orderBy('estimateAt')
             .then(tasks => res.json(tasks))
             .catch(err => res.status(500).json(err))
