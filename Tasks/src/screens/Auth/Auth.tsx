@@ -1,27 +1,17 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
-import {
-  Alert,
-  ImageBackground,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {ImageBackground, Text, TouchableOpacity, View} from 'react-native';
 
 import backgroundImage from '../../../assets/imgs/login.jpg';
 import styles from './styles';
+import {UserAuth} from '../../global/types';
 import AuthInput from '../../components/AuthInput/AuthInput';
 import {server, showError, showSuccess} from '../../global/common';
 import axios from 'axios';
+import validateFormField from './validateFormFunctions';
 
 type AuthProps = {
   navigation: any;
-};
-type AuthState = {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  stageNew: boolean;
 };
 
 const initialState = {
@@ -32,16 +22,12 @@ const initialState = {
   stageNew: false,
 };
 
-export default class Auth extends Component<AuthProps, AuthState> {
-  state: AuthState = {...initialState};
+export default class Auth extends Component<AuthProps, UserAuth> {
+  state: UserAuth = {...initialState};
 
   signinOrSignup = () => {
     if (this.state.stageNew) {
-      if (this.state.password === this.state.confirmPassword) {
-        this.signup();
-      } else {
-        Alert.alert('Senhas não batem');
-      }
+      this.signup();
     } else {
       this.signin();
     }
@@ -77,6 +63,8 @@ export default class Auth extends Component<AuthProps, AuthState> {
   };
 
   render() {
+    const formValidation = validateFormField(this.state);
+
     return (
       <ImageBackground source={backgroundImage} style={styles.backgorund}>
         <Text style={styles.title}>Tasks</Text>
@@ -124,8 +112,14 @@ export default class Auth extends Component<AuthProps, AuthState> {
             />
           )}
 
-          <TouchableOpacity onPress={this.signinOrSignup}>
-            <View style={styles.button}>
+          <TouchableOpacity
+            onPress={this.signinOrSignup}
+            disabled={!formValidation}>
+            <View
+              style={[
+                styles.button,
+                formValidation ? {} : {backgroundColor: '#AAA'},
+              ]}>
               <Text style={styles.buttonText}>
                 {this.state.stageNew ? 'Registrar' : 'Entrar'}
               </Text>
@@ -134,7 +128,6 @@ export default class Auth extends Component<AuthProps, AuthState> {
         </View>
 
         <TouchableOpacity
-          // eslint-disable-next-line react-native/no-inline-styles
           style={{padding: 10}}
           onPress={() => this.setState({stageNew: !this.state.stageNew})}>
           <Text style={styles.buttonText}>
