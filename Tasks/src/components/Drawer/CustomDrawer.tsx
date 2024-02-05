@@ -3,14 +3,24 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import {Text, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import Gravatar from '@krosben/react-native-gravatar';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import UserContext from '../../context/UserContext';
 import styles from './styles';
 
 export default function CustomDrawer(props: any) {
   const {state}: any = useContext(UserContext);
+
+  const logout = () => {
+    delete axios.defaults.headers.common.Authorization;
+    AsyncStorage.removeItem('userData');
+    props.navigation.navigate('AuthOrApp');
+  };
 
   return (
     <DrawerContentScrollView {...props}>
@@ -27,6 +37,12 @@ export default function CustomDrawer(props: any) {
           <Text style={styles.name}>{state.name}</Text>
           <Text style={styles.email}>{state.email}</Text>
         </View>
+
+        <TouchableOpacity onPress={logout}>
+          <View style={styles.logoutIcon}>
+            <Icon name="sign-out" size={30} color="#800" />
+          </View>
+        </TouchableOpacity>
       </View>
       <DrawerItemList {...props} />
     </DrawerContentScrollView>

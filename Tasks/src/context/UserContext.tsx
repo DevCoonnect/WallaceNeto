@@ -7,6 +7,15 @@ type UserType = {
   token: string;
 };
 
+// const userDataString = await AsyncStorage.getItem('userData');
+// const userData = userDataString ? JSON.parse(userDataString) : null;
+
+// const initialState: UserType = {
+//   name: userData ? userData.name : '',
+//   email: userData ? userData.email : '',
+//   token: userData ? userData.token : '',
+// };
+
 const initialState: UserType = {
   name: '',
   email: '',
