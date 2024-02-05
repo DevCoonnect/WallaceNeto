@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   DrawerContentScrollView,
   DrawerItemList,
@@ -6,11 +6,11 @@ import {
 import {Text, View} from 'react-native';
 import Gravatar from '@krosben/react-native-gravatar';
 
+import UserContext from '../../context/UserContext';
 import styles from './styles';
 
 export default function CustomDrawer(props: any) {
-  const name = 'Teste da Silva';
-  const email = 'teste@teste.com';
+  const {state}: any = useContext(UserContext);
 
   return (
     <DrawerContentScrollView {...props}>
@@ -19,13 +19,13 @@ export default function CustomDrawer(props: any) {
 
         <View style={styles.avatarContainer}>
           <View style={styles.avatar}>
-            <Gravatar email={email} defaultImage="mm" />
+            <Gravatar email={state.email} defaultImage="mm" />
           </View>
         </View>
 
         <View style={styles.userInfo}>
-          <Text style={styles.name}>{name}</Text>
-          <Text style={styles.email}>{email}</Text>
+          <Text style={styles.name}>{state.name}</Text>
+          <Text style={styles.email}>{state.email}</Text>
         </View>
       </View>
       <DrawerItemList {...props} />

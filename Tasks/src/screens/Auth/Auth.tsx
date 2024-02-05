@@ -1,18 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
-import React, {Component} from 'react';
+import React, {Component, useContext, useState} from 'react';
 import {ImageBackground, Text, TouchableOpacity, View} from 'react-native';
 
+import UserContext from '../../context/UserContext';
 import backgroundImage from '../../../assets/imgs/login.jpg';
 import styles from './styles';
-import {UserAuth} from '../../global/types';
 import AuthInput from '../../components/AuthInput/AuthInput';
 import {server, showError, showSuccess} from '../../global/common';
 import axios from 'axios';
 import validateFormField from './validateFormFunctions';
-
-type AuthProps = {
-  navigation: any;
-};
 
 // for development proposes
 const temporaryInitialState = {
@@ -31,121 +28,120 @@ const temporaryInitialState = {
 //   stageNew: false,
 // };
 
-export default class Auth extends Component<AuthProps, UserAuth> {
-  state: UserAuth = {...temporaryInitialState};
+export default function Auth(props: any) {
+  const {dispatch}: any = useContext(UserContext);
+  const [user, setUser] = useState(temporaryInitialState);
+  const formValidation = validateFormField(user);
 
-  signinOrSignup = () => {
-    if (this.state.stageNew) {
-      this.signup();
+  const signinOrSignup = () => {
+    if (user.stageNew) {
+      signup();
     } else {
-      this.signin();
+      signin();
     }
   };
 
-  signup = async () => {
+  const signup = async () => {
     try {
       await axios.post(`${server}/signup`, {
-        name: this.state.name,
-        email: this.state.email,
-        password: this.state.password,
+        name: user.name,
+        email: user.email,
+        password: user.password,
       });
 
       showSuccess('Usuário cadastrado!');
-      this.setState({...temporaryInitialState});
+      setUser({...temporaryInitialState});
     } catch (e) {
       showError(e);
     }
   };
 
-  signin = async () => {
+  const signin = async () => {
     try {
       const res = await axios.post(`${server}/signin`, {
-        email: this.state.email,
-        password: this.state.password,
+        email: user.email,
+        password: user.password,
       });
 
       axios.defaults.headers.common.Authorization = `bearer ${res.data.token}`;
-      this.props.navigation.navigate('Home');
+      dispatch({
+        payload: res.data,
+      });
+      props.navigation.navigate('Home');
     } catch (e) {
       showError(e);
     }
   };
 
-  render() {
-    const formValidation = validateFormField(this.state);
+  return (
+    <ImageBackground source={backgroundImage} style={styles.backgorund}>
+      <Text style={styles.title}>Tasks</Text>
 
-    return (
-      <ImageBackground source={backgroundImage} style={styles.backgorund}>
-        <Text style={styles.title}>Tasks</Text>
+      <View style={styles.formContainer}>
+        <Text style={styles.subtitle}>
+          {user.stageNew ? 'Crie sua conta' : 'Informe seus dados'}
+        </Text>
 
-        <View style={styles.formContainer}>
-          <Text style={styles.subtitle}>
-            {this.state.stageNew ? 'Crie sua conta' : 'Informe seus dados'}
-          </Text>
-
-          {this.state.stageNew && (
-            <AuthInput
-              icon="user"
-              style={styles.input}
-              placeholder="Nome"
-              value={this.state.name}
-              onChangeText={name => this.setState({name})}
-            />
-          )}
-
+        {user.stageNew && (
           <AuthInput
-            icon="at"
+            icon="user"
             style={styles.input}
-            placeholder="E-mail"
-            value={this.state.email}
-            onChangeText={email => this.setState({email})}
+            placeholder="Nome"
+            value={user.name}
+            onChangeText={name => setUser({...user, name})}
           />
+        )}
 
+        <AuthInput
+          icon="at"
+          style={styles.input}
+          placeholder="E-mail"
+          value={user.email}
+          onChangeText={email => setUser({...user, email})}
+        />
+
+        <AuthInput
+          icon="lock"
+          secureTextEntry
+          style={styles.input}
+          placeholder="Password"
+          value={user.password}
+          onChangeText={password => setUser({...user, password})}
+        />
+
+        {user.stageNew && (
           <AuthInput
             icon="lock"
             secureTextEntry
             style={styles.input}
-            placeholder="Password"
-            value={this.state.password}
-            onChangeText={password => this.setState({password})}
+            placeholder="Confirme a senha"
+            value={user.confirmPassword}
+            onChangeText={confirmPassword =>
+              setUser({...user, confirmPassword})
+            }
           />
+        )}
 
-          {this.state.stageNew && (
-            <AuthInput
-              icon="lock"
-              secureTextEntry
-              style={styles.input}
-              placeholder="Confirme a senha"
-              value={this.state.confirmPassword}
-              onChangeText={confirmPassword => this.setState({confirmPassword})}
-            />
-          )}
-
-          <TouchableOpacity
-            onPress={this.signinOrSignup}
-            disabled={!formValidation}>
-            <View
-              style={[
-                styles.button,
-                formValidation ? {} : {backgroundColor: '#AAA'},
-              ]}>
-              <Text style={styles.buttonText}>
-                {this.state.stageNew ? 'Registrar' : 'Entrar'}
-              </Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-
-        <TouchableOpacity
-          style={{padding: 10}}
-          onPress={() => this.setState({stageNew: !this.state.stageNew})}>
-          <Text style={styles.buttonText}>
-            {this.state.stageNew
-              ? 'Já possui conta?'
-              : 'Ainda não possui conta?'}
-          </Text>
+        <TouchableOpacity onPress={signinOrSignup} disabled={!formValidation}>
+          <View
+            style={[
+              styles.button,
+              formValidation ? {} : {backgroundColor: '#AAA'},
+            ]}>
+            <Text style={styles.buttonText}>
+              {user.stageNew ? 'Registrar' : 'Entrar'}
+            </Text>
+          </View>
         </TouchableOpacity>
-      </ImageBackground>
-    );
-  }
+      </View>
+
+      <TouchableOpacity
+        style={{padding: 10}}
+        onPress={() => setUser({...user, stageNew: !user.stageNew})}>
+        <Text style={styles.buttonText}>
+          {user.stageNew ? 'Já possui conta?' : 'Ainda não possui conta?'}
+        </Text>
+      </TouchableOpacity>
+    </ImageBackground>
+  );
 }

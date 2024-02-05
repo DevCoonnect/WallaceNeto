@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
+import {UserProvider} from './context/UserContext';
 import Auth from './screens/Auth/Auth';
 import TaskList from './screens/TaskList/TaskList';
 import CustomDrawer from './components/Drawer/CustomDrawer';
@@ -52,9 +53,11 @@ const AuthNavigator = () => {
 
 const Navigator = () => {
   return (
-    <NavigationContainer>
-      <AuthNavigator />
-    </NavigationContainer>
+    <UserProvider>
+      <NavigationContainer>
+        <AuthNavigator />
+      </NavigationContainer>
+    </UserProvider>
   );
 };
 
