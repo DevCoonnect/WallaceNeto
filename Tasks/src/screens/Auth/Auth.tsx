@@ -1,36 +1,26 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
-import React, {Component, useContext, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {ImageBackground, Text, TouchableOpacity, View} from 'react-native';
+import axios from 'axios';
 
+import styles from './styles';
+import validateFormField from './validateFormFunctions';
 import UserContext from '../../context/UserContext';
 import backgroundImage from '../../../assets/imgs/login.jpg';
-import styles from './styles';
 import AuthInput from '../../components/AuthInput/AuthInput';
 import {server, showError, showSuccess} from '../../global/common';
-import axios from 'axios';
-import validateFormField from './validateFormFunctions';
 
-// for development proposes
-const temporaryInitialState = {
+const initialState = {
   name: '',
-  email: 'ze@teste',
-  password: '123456',
+  email: '',
+  password: '',
   confirmPassword: '',
   stageNew: false,
 };
 
-// const initialState = {
-//   name: '',
-//   email: '',
-//   password: '',
-//   confirmPassword: '',
-//   stageNew: false,
-// };
-
 export default function Auth(props: any) {
   const {dispatch}: any = useContext(UserContext);
-  const [user, setUser] = useState(temporaryInitialState);
+  const [user, setUser] = useState(initialState);
   const formValidation = validateFormField(user);
 
   const signinOrSignup = () => {
@@ -50,7 +40,7 @@ export default function Auth(props: any) {
       });
 
       showSuccess('Usuário cadastrado!');
-      setUser({...temporaryInitialState});
+      setUser({...initialState});
     } catch (e) {
       showError(e);
     }

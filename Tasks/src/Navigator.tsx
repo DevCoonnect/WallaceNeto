@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import {UserProvider} from './context/UserContext';
+import AuthOrApp from './screens/AuthOrApp/AuthOrApp';
 import Auth from './screens/Auth/Auth';
 import TaskList from './screens/TaskList/TaskList';
 import CustomDrawer from './components/Drawer/CustomDrawer';
@@ -45,6 +46,7 @@ const Stack = createNativeStackNavigator();
 const AuthNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name="AuthOrApp" component={AuthOrApp} />
       <Stack.Screen name="Auth">{props => <Auth {...props} />}</Stack.Screen>
       <Stack.Screen name="Home" component={DrawerNavigator} />
     </Stack.Navigator>

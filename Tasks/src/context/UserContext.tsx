@@ -1,4 +1,5 @@
 import React, {createContext, useReducer} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type UserType = {
   name: string;
@@ -7,9 +8,9 @@ type UserType = {
 };
 
 const initialState: UserType = {
-  name: 'Ze do teste',
-  email: 'ze@teste.com',
-  token: 'jdfhkdsjfhkjdf',
+  name: '',
+  email: '',
+  token: '',
 };
 
 const UserContext = createContext<UserType | {}>({});
@@ -17,6 +18,9 @@ const UserContext = createContext<UserType | {}>({});
 export const UserProvider = (props: any) => {
   function reducer(state: UserType, action: any): UserType {
     const user = action.payload;
+
+    AsyncStorage.setItem('userData', JSON.stringify(user));
+
     return {name: user.name, email: user.email, token: user.token};
   }
 
