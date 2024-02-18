@@ -8,17 +8,17 @@ import Gravatar from '@krosben/react-native-gravatar';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import UserContext from '../../context/UserContext';
 import styles from './styles';
 
 export default function CustomDrawer(props: any) {
+  const {dispatch}: any = useContext(UserContext);
   const {state}: any = useContext(UserContext);
 
   const logout = () => {
     delete axios.defaults.headers.common.Authorization;
-    AsyncStorage.removeItem('userData');
+    dispatch({type: 'LOGOUT'});
     props.navigation.navigate('AuthOrApp');
   };
 

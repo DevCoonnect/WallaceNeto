@@ -55,6 +55,7 @@ export default function Auth(props: any) {
 
       axios.defaults.headers.common.Authorization = `bearer ${res.data.token}`;
       dispatch({
+        type: 'LOGIN',
         payload: res.data,
       });
       props.navigation.navigate('Home');

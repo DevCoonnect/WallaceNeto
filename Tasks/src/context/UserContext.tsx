@@ -7,15 +7,6 @@ type UserType = {
   token: string;
 };
 
-// const userDataString = await AsyncStorage.getItem('userData');
-// const userData = userDataString ? JSON.parse(userDataString) : null;
-
-// const initialState: UserType = {
-//   name: userData ? userData.name : '',
-//   email: userData ? userData.email : '',
-//   token: userData ? userData.token : '',
-// };
-
 const initialState: UserType = {
   name: '',
   email: '',
@@ -28,9 +19,18 @@ export const UserProvider = (props: any) => {
   function reducer(state: UserType, action: any): UserType {
     const user = action.payload;
 
-    AsyncStorage.setItem('userData', JSON.stringify(user));
-
-    return {name: user.name, email: user.email, token: user.token};
+    switch (action.type) {
+      case 'LOGIN':
+        AsyncStorage.setItem('userData', JSON.stringify(user));
+        return {...user};
+      case 'LOGOUT':
+        AsyncStorage.removeItem('userData');
+        console.log('Deslogou');
+        return {...initialState};
+      default:
+        console.log('Caso não tratado');
+        return {...state};
+    }
   }
 
   const [state, dispatch] = useReducer(reducer, initialState);
