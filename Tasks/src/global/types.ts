@@ -1,3 +1,11 @@
+type UserAuth = {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  stageNew: boolean;
+};
+
 type TaskType = {
   id: number;
   desc: String;
@@ -7,4 +15,4 @@ type TaskType = {
   onDelete?: (id: number) => void;
 };
 
-export type {TaskType};
+export type {UserAuth, TaskType};

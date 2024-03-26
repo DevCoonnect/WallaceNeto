@@ -15,9 +15,9 @@ const styles = StyleSheet.create({
   },
   iconBar: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     marginHorizontal: 20,
-    marginTop: Platform.OS === 'ios' ? 40 : 10,
+    marginTop: Platform.OS === 'ios' ? 40 : 15,
   },
   title: {
     fontFamily: commonStyles.fontFamily,

@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   Platform,
+  ColorValue,
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from 'moment';
@@ -18,6 +19,7 @@ type AddTaskProps = {
   isVisible: boolean;
   onCancel: () => void;
   onSave?: (newTask: TaskType) => void;
+  color: ColorValue;
 };
 
 const initialState = {desc: '', date: new Date(), showDatePicker: false};
@@ -54,7 +56,7 @@ export default class AddTask extends Component<AddTaskProps> {
         <View>
           <TouchableOpacity
             onPress={() => this.setState({showDatePicker: true})}>
-            <Text style={styles.date}>{dateString}</Text>
+            <Text style={styles(this.props.color).date}>{dateString}</Text>
           </TouchableOpacity>
 
           {this.state.showDatePicker && datePicker}
@@ -72,13 +74,13 @@ export default class AddTask extends Component<AddTaskProps> {
         visible={this.props.isVisible}
         onRequestClose={this.props.onCancel}>
         <TouchableWithoutFeedback onPress={this.props.onCancel}>
-          <View style={styles.background}>
+          <View style={styles(this.props.color).background}>
             <TouchableWithoutFeedback onPress={() => null}>
-              <View style={styles.container}>
-                <Text style={styles.header}>Nova tarefa</Text>
+              <View style={styles(this.props.color).container}>
+                <Text style={styles(this.props.color).header}>Nova tarefa</Text>
 
                 <TextInput
-                  style={styles.input}
+                  style={styles(this.props.color).input}
                   placeholder="Informe a descrição..."
                   onChangeText={desc => this.setState({desc})}
                   value={this.state.desc}
@@ -86,12 +88,14 @@ export default class AddTask extends Component<AddTaskProps> {
 
                 {this.getDateTimePicker()}
 
-                <View style={styles.buttons}>
+                <View style={styles(this.props.color).buttons}>
                   <TouchableOpacity onPress={this.props.onCancel}>
-                    <Text style={styles.button}>Cancelar</Text>
+                    <Text style={styles(this.props.color).button}>
+                      Cancelar
+                    </Text>
                   </TouchableOpacity>
                   <TouchableOpacity onPress={this.save}>
-                    <Text style={styles.button}>Salvar</Text>
+                    <Text style={styles(this.props.color).button}>Salvar</Text>
                   </TouchableOpacity>
                 </View>
               </View>
