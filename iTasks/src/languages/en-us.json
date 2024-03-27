@@ -1,0 +1,30 @@
+{
+  "translation": {
+    "Go back": "Go back",
+    "Login": {
+      "Welcome back": "Welcome back",
+      "Get back to your task menagement": "Get back to your task menagement",
+      "Email": "Email",
+      "Password": "Password",
+      "Remember my password": "Remember my password",
+      "Login": "Login",
+      "Or": "Or",
+      "Don't have an account?": "Don't have an account?",
+      "Signup": "Signup"
+    },
+    "Signup": {
+      "Welcome": "Welcome",
+      "Start to menagement you tasks": "Start to menagement you tasks",
+      "Name": "Name",
+      "Email": "Email",
+      "Password": "Password",
+      "Confirm password": "Confirm password",
+      "Signup": "Signup",
+      "Has an acount?": "Has an account?",
+      "Login": "Login"
+    },
+    "HomeScreen": {
+      "Title": "Hello, {{user}}"
+    }
+  }
+}
