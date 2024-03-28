@@ -1,4 +1,4 @@
-import { IStyleProps } from "./IStyleProps";
+import { ITextStyle } from "./IStyleProps";
 import { ITextProps } from "./ITextProps";
 
-export type { IStyleProps, ITextProps };
+export type { ITextStyle, ITextProps };

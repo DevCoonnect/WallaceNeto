@@ -1,5 +1,3 @@
-type ITextButtonStyle = {
+export type ITextButtonStyle = {
   color?: string;
 };
-
-export type { ITextButtonStyle };
