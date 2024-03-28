@@ -17,7 +17,7 @@ const ButtonComponent: React.FC<IButtonProps> = (props) => {
         (props.outlined ? style.outlinedButton : style.button), 
         (props.flat ? style.flat : null)
       ]}
-      onPress={() => {}}
+      onPress={props.onPress}
     >
       <TextComponent bold color={props.textColor || (props.outlined ? buttonColor : colors.white)}>
         {props.children}

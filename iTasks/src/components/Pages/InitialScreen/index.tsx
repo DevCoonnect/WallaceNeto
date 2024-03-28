@@ -25,11 +25,11 @@ const InitialScreen: React.FC = () => {
       </View>
 
       <View style={styles.buttonsContainer}>
-        <ButtonComponent outlined color={colors.white}>
+        <ButtonComponent outlined color={colors.white} onPress={() => {}}>
           {t('Login.Signup')}
         </ButtonComponent>
 
-        <ButtonComponent color={colors.white} textColor={colors.black}>
+        <ButtonComponent color={colors.white} textColor={colors.black} onPress={() => {}}>
           {t('Login.Login')}
         </ButtonComponent>
 
