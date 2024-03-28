@@ -1,14 +1,15 @@
-import React from 'react';
-import {Image, View} from 'react-native';
-import {useStyles} from './styles';
-import {useTranslation} from 'react-i18next';
+import React, { useContext } from 'react';
+import { Image, View } from 'react-native';
+import { useStyles } from './styles';
+import { useTranslation } from 'react-i18next';
 
+import { ThemeContext } from '../../../storage/context';
 import appName from '../../../assets/img/app-name.png';
 import avatar from '../../../assets/img/avatar.png';
-import TextComponent from '../../Atoms/Text';
+import ButtonComponent from '../../Atoms/Button';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const InitialScreen: React.FC = (props) => {
+const InitialScreen: React.FC = () => {
+  const {colors} = useContext(ThemeContext);
   const styles = useStyles();
   const {t} = useTranslation();
 
@@ -17,12 +18,20 @@ const InitialScreen: React.FC = (props) => {
       <View style={styles.titleContainer}>
         <Image source={appName} />
       </View>
+
       <View style={styles.avatarContainer}>
         <Image source={avatar} style={styles.avatarImage} />
       </View>
+
       <View style={styles.buttonsContainer}>
-        <TextComponent>{t('Login.Signup')}</TextComponent>
-        <TextComponent>{t('Login.Login')}</TextComponent>
+        <ButtonComponent outlined color={colors.white}>
+          {t('Login.Signup')}
+        </ButtonComponent>
+
+        <ButtonComponent color={colors.white} textColor={colors.black}>
+          {t('Login.Login')}
+        </ButtonComponent>
+
       </View>
     </View>
   );

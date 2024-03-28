@@ -6,7 +6,8 @@ export const dark: ITheme = {
 
   primaryBackground: '#252329',
   textPrimaryColor: '#FFF',
-  textSecondaryColor: '#F5F5F5',
+  textSecondaryColor: '#000',
+  textSubtitleColor: '#F5F5F5',
 
   white: '#FFF',
   black: '#000',

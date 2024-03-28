@@ -6,7 +6,8 @@ export const light: ITheme = {
 
   primaryBackground: '#F5F6FA',
   textPrimaryColor: '#000',
-  textSecondaryColor: '#626262',
+  textSecondaryColor: '#FFF',
+  textSubtitleColor: '#626262',
 
   white: '#FFF',
   black: '#000',

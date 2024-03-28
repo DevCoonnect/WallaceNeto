@@ -1,24 +1,12 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import {useContext} from 'react';
-import {ThemeContext} from '../../../storage/context';
+import { StyleSheet, Dimensions } from 'react-native';
+import { useContext } from 'react';
+import { ThemeContext } from '../../../storage/context';
 
 export const useStyles = () => {
   const {colors} = useContext(ThemeContext);
   const screenDimensions = Dimensions.get('screen');
 
   return StyleSheet.create({
-    bgTest: {
-      flex: 1,
-      backgroundColor: colors.primaryBackground,
-    },
-    titleTest: {
-      color: colors.textPrimaryColor,
-      fontSize: 24,
-    },
-    subtitleTest: {
-      color: colors.textSecondaryColor,
-      fontSize: 18,
-    },
     container: {
       flex: 1,
       justifyContent: 'space-between',

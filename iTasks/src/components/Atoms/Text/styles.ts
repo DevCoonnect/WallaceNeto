@@ -11,6 +11,7 @@ export const useStyles = (props: IStyleProps) => {
     normalText: {
       color: props.color || colors.textPrimaryColor,
       fontSize: props.size || 16,
+      fontWeight: props.bold ? "bold" : "normal",
     },
   });
 };

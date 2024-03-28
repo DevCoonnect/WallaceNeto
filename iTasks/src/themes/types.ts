@@ -5,6 +5,7 @@ export type ITheme = {
 
   textPrimaryColor: string;
   textSecondaryColor: string;
+  textSubtitleColor: string;
 
   white: string;
   black: string;
