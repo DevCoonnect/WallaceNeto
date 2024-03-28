@@ -7,6 +7,7 @@ import { ThemeContext } from '../../../storage/context';
 import appName from '../../../assets/img/app-name.png';
 import avatar from '../../../assets/img/avatar.png';
 import ButtonComponent from '../../Atoms/Button';
+import TextButton from '../../Atoms/TextButton';
 
 const InitialScreen: React.FC = () => {
   const {colors} = useContext(ThemeContext);

@@ -12,7 +12,7 @@ export const ThemeProvider = ({children}: PropsWithChildren) => {
   const theme = colorScheme === 'dark' ? themes.dark : themes.light;
 
   return (
-    <ThemeContext.Provider value={{colors: themes.dark}}>
+    <ThemeContext.Provider value={{colors: theme}}>
       {children}
     </ThemeContext.Provider>
   );
