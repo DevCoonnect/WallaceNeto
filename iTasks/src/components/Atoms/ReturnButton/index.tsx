@@ -14,7 +14,7 @@ const ReturnButton: React.FC = () => {
 
   return (
     <TouchableOpacity style={style.container} onPress={() => {}}>
-      <Icon  name='arrow-back-ios' color={colors.white} />
+      <Icon name='arrow-back-ios' color={colors.white} />
       <TextComponent styles={style.text}>
         {t('Go back')}
       </TextComponent>

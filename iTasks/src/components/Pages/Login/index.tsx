@@ -8,6 +8,7 @@ import TextComponent from '../../Atoms/Text';
 import ButtonComponent from '../../Atoms/Button';
 import TextButton from '../../Atoms/TextButton';
 import ReturnButton from '../../Atoms/ReturnButton';
+import SocialNetworkButton from '../../Atoms/SocialNetworkButton';
 
 const Login: React.FC = () => {
   const {colors} = useContext(ThemeContext);
@@ -55,21 +56,8 @@ const Login: React.FC = () => {
         </TextComponent>
       
         <View style={style.socialNetworksButtons}>
-          <ButtonComponent 
-            outlined
-            onPress={() => {}} 
-            color={colors.white} 
-          >
-            Google
-          </ButtonComponent>
-
-          <ButtonComponent 
-            outlined
-            onPress={() => {}} 
-            color={colors.white} 
-          >
-            Facebook
-          </ButtonComponent>
+          <SocialNetworkButton type='google' color={colors.white} />
+          <SocialNetworkButton type='facebook' color={colors.white} />
         </View>
       </View>
 
