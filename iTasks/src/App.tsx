@@ -3,6 +3,7 @@ import {SafeAreaView, StatusBar} from 'react-native';
 import './languages/i18n';
 
 import InitialScreen from './components/Pages/InitialScreen';
+import Login from './components/Pages/Login';
 import {themes} from './themes/index';
 import {ThemeProvider} from './storage/context';
 
@@ -11,7 +12,8 @@ export default function App() {
     <ThemeProvider>
       <SafeAreaView style={{flex: 1}}>
         <StatusBar backgroundColor={themes.light.primaryColor} />
-        <InitialScreen />
+        {/* <InitialScreen /> */}
+        <Login />
       </SafeAreaView>
     </ThemeProvider>
   );
