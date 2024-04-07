@@ -19,7 +19,36 @@ const SignupForm: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const onSubmit = () => {
-    console.log('Name: ' + name + '\n' + 'Email: ' + email + '\n' + 'Password: ' + password);
+    const nameFix = name.trim();
+    const emailFix = email.trim().toLowerCase();
+    let [error, errorMsg] = validateFields(nameFix, emailFix, password, confirmPassword);
+
+    if (error) {
+      console.warn(errorMsg);
+    } else {
+      console.log('Name: ' + nameFix + '\n' + 'Email: ' + emailFix + '\n' + 'Password: ' + password);
+    }
+  }
+
+  const validateFields = (name: string, email: string, password: string, confirmPassword: string) => {
+    if (name === '' || email === '' || password === '') {
+      return [true, 'Please fill all the fields!'];
+    }
+    if (name.length < 4) {
+      return [true, 'Name must have at least 4 characters'];
+    }
+    const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    if (!email.match(re)) {
+      return [true, 'Invalid email'];
+    }
+    if (password.length < 6) {
+      return [true, 'Password must have at least 6 characters'];
+    }
+    if (password !== confirmPassword) {
+      return [true, 'Passwords must match'];
+    }
+
+    return [false, ''];
   }
 
   return (
