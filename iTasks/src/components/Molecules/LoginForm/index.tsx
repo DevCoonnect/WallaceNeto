@@ -23,11 +23,9 @@ const LoginForm: React.FC = () => {
 
   return (
     <View style={style.container}>
-      <TextComponent styles={style.label}>
-        {t('Login.Email')}
-      </TextComponent>
       <View style={style.field}>
-        <TextInputComponent 
+        <TextInputComponent
+          placeholder={t('Login.Email')}
           value={email} 
           setValue={setEmail} 
           type='email' 
@@ -35,11 +33,9 @@ const LoginForm: React.FC = () => {
         />
       </View>
       
-      <TextComponent styles={style.label}>
-        {t('Login.Password')}
-      </TextComponent>
       <View style={style.field}>
-        <TextInputComponent 
+        <TextInputComponent
+          placeholder={t('Login.Password')}
           value={password} 
           setValue={setPassword} 
           type='password' 

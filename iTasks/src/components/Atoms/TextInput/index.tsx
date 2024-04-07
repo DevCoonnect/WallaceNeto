@@ -28,6 +28,8 @@ const TextInputComponent: React.FC<ITextInputProps> = (props) => {
           : null
       }
       <TextInput
+        placeholder={props.placeholder}
+        placeholderTextColor={props.color}
         defaultValue={props.value}
         onChangeText={newText => props.setValue(newText)}
         autoComplete={props.type == 'email' ? 'email' : undefined}

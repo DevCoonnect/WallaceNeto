@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 
 import {ThemeContext} from '../../../storage/context';
 import useStyles from './styles';
-import TextComponent from '../../Atoms/Text';
 import TextInputComponent from '../../Atoms/TextInput';
 import TextButton from '../../Atoms/TextButton';
 import ButtonComponent from '../../Atoms/Button';
@@ -25,11 +24,9 @@ const SignupForm: React.FC = () => {
 
   return (
     <View style={style.container}>
-      <TextComponent styles={style.label}>
-        {t('Signup.Name')}
-      </TextComponent>
       <View style={style.field}>
-        <TextInputComponent 
+        <TextInputComponent
+          placeholder={t('Signup.Name')}
           value={name} 
           setValue={setName} 
           icon='user' 
@@ -37,11 +34,9 @@ const SignupForm: React.FC = () => {
         />
       </View>
       
-      <TextComponent styles={style.label}>
-        {t('Signup.Email')}
-      </TextComponent>
       <View style={style.field}>
         <TextInputComponent 
+          placeholder={t('Signup.Email')}
           value={email} 
           setValue={setEmail} 
           type='email' 
@@ -49,23 +44,19 @@ const SignupForm: React.FC = () => {
         />
       </View>
       
-      <TextComponent styles={style.label}>
-        {t('Signup.Password')}
-      </TextComponent>
       <View style={style.field}>
-        <TextInputComponent 
+        <TextInputComponent
+          placeholder={t('Signup.Password')}
           value={password} 
           setValue={setPassword} 
           type='password' 
           color={colors.white}
         />
       </View>
-      
-      <TextComponent styles={style.label}>
-        {t('Signup.Confirm password')}
-      </TextComponent>
+
       <View style={style.field}>
-        <TextInputComponent 
+        <TextInputComponent
+          placeholder={t('Signup.Confirm password')}
           value={confirmPassword} 
           setValue={setConfirmPassword} 
           type='password' 

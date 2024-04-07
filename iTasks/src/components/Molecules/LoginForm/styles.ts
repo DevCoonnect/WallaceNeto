@@ -18,7 +18,7 @@ const useStyles = () => {
       marginBottom: 20,
     },
     submitButton: {
-      marginTop: 50,
+      marginTop: 60,
     },
     rememberPasswordContainer: {
       alignItems: 'center',
