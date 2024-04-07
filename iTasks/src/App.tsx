@@ -4,6 +4,7 @@ import './languages/i18n';
 
 import InitialScreen from './components/Pages/InitialScreen';
 import Login from './components/Pages/Login';
+import Signup from './components/Pages/Signup';
 import {themes} from './themes/index';
 import {ThemeProvider} from './storage/context';
 
@@ -13,7 +14,8 @@ export default function App() {
       <SafeAreaView style={{flex: 1}}>
         <StatusBar backgroundColor={themes.light.primaryColor} />
         {/* <InitialScreen /> */}
-        <Login />
+        {/* <Login /> */}
+        <Signup />
       </SafeAreaView>
     </ThemeProvider>
   );
