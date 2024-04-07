@@ -2,12 +2,14 @@ import React, { useContext, useState } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import {ThemeContext} from '../../../storage/context';
-import useStyles from './styles';
-import TextComponent from '../../Atoms/Text';
-import TextInputComponent from '../../Atoms/TextInput';
-import TextButton from '../../Atoms/TextButton';
-import ButtonComponent from '../../Atoms/Button';
+import {ThemeContext} from '../../../../storage/context';
+import useStyles from '../styles';
+import { onSubmit } from './lib';
+
+import TextComponent from '../../../Atoms/Text';
+import TextInputComponent from '../../../Atoms/TextInput';
+import TextButton from '../../../Atoms/TextButton';
+import ButtonComponent from '../../../Atoms/Button';
 
 const LoginForm: React.FC = () => {
   const {colors} = useContext(ThemeContext);
@@ -16,10 +18,6 @@ const LoginForm: React.FC = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const onSubmit = () => {
-    console.log('Email: ' + email + '\n' + 'Password: ' + password);
-  }
 
   return (
     <View style={style.container}>
@@ -54,7 +52,7 @@ const LoginForm: React.FC = () => {
       <View style={style.submitButton}>
         <ButtonComponent 
           flat 
-          onPress={() => onSubmit()} 
+          onPress={() => onSubmit({email, password})} 
           color={colors.white} 
           textColor={colors.black}
         >

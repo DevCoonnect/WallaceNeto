@@ -7,7 +7,7 @@ import useStyles from './styles';
 import TextComponent from '../../Atoms/Text';
 import TextButton from '../../Atoms/TextButton';
 import ReturnButton from '../../Atoms/ReturnButton';
-import SignupForm from '../../Molecules/SignupForm';
+import SignupForm from '../../Molecules/AuthForms/SignupForm';
 
 const Signup: React.FC = () => {
   const {colors} = useContext(ThemeContext);

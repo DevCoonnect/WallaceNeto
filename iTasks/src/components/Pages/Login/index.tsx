@@ -8,7 +8,7 @@ import TextComponent from '../../Atoms/Text';
 import TextButton from '../../Atoms/TextButton';
 import ReturnButton from '../../Atoms/ReturnButton';
 import SocialNetworkButton from '../../Atoms/SocialNetworkButton';
-import LoginForm from '../../Molecules/LoginForm';
+import LoginForm from '../../Molecules/AuthForms/LoginForm';
 
 const Login: React.FC = () => {
   const {colors} = useContext(ThemeContext);
