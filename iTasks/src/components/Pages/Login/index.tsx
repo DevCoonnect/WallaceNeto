@@ -9,6 +9,7 @@ import ButtonComponent from '../../Atoms/Button';
 import TextButton from '../../Atoms/TextButton';
 import ReturnButton from '../../Atoms/ReturnButton';
 import SocialNetworkButton from '../../Atoms/SocialNetworkButton';
+import TextInputComponent from '../../Atoms/TextInput';
 
 const Login: React.FC = () => {
   const {colors} = useContext(ThemeContext);
@@ -35,10 +36,12 @@ const Login: React.FC = () => {
         <TextComponent color={colors.white}>
           {t('Login.Email')}
         </TextComponent>
+        <TextInputComponent type='email' color={colors.white} />
         
         <TextComponent color={colors.white}>
         {t('Login.Password')}
         </TextComponent>
+        <TextInputComponent type='password' color={colors.white} />
       </View>
 
       <View style={style.buttons}>

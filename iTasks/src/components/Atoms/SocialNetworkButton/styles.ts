@@ -13,7 +13,7 @@ const useStyles = ({color}: ISocialNetworkButtonStyle) => {
       alignItems: 'center',
       paddingVertical: 8,
       paddingHorizontal: 20,
-      borderWidth: 2,
+      borderWidth: 1,
       borderColor: color || colors.textPrimaryColor,
       borderRadius: 10,
     },

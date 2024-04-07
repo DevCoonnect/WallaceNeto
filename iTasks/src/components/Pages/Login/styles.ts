@@ -28,6 +28,7 @@ const useStyles = () => {
     form: {
       backgroundColor: 'blue',
       marginTop: 50,
+      paddingHorizontal: 25,
     },
     buttons: {
       marginTop: 65,
