@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import {ThemeContext} from '../../../storage/context';
@@ -17,7 +17,7 @@ const Login: React.FC = () => {
   const {t} = useTranslation();
 
   return (
-    <View style={style.container}>
+    <ScrollView style={style.container}>
       <View style={style.goBack}>
         <ReturnButton />
       </View>
@@ -75,7 +75,7 @@ const Login: React.FC = () => {
           </TextComponent>
         </TextButton>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 

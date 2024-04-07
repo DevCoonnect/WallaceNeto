@@ -31,12 +31,12 @@ const useStyles = () => {
       paddingHorizontal: 25,
     },
     buttons: {
-      marginTop: 65,
+      marginTop: 50,
       paddingHorizontal: 26,
       alignItems: 'center',
     },
     middleTextButtons: {
-      marginVertical: 25,
+      marginVertical: 20,
       color: colors.white,
     },
     socialNetworksButtons: {
@@ -47,7 +47,7 @@ const useStyles = () => {
     signupTextContainer: {
       flexDirection: 'row',
       alignSelf: 'center',
-      marginTop: 50,
+      marginVertical: 30,
     },
     signupTextButton: {
       marginRight: 5,
