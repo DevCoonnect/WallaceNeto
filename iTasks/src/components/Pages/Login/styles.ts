@@ -24,14 +24,10 @@ const useStyles = () => {
       color: colors.white,
       marginBottom: 12,
     },
-    subtitle: {},
-    form: {
-      backgroundColor: 'blue',
-      marginTop: 50,
-      paddingHorizontal: 25,
+    subtitle: {
+      color: colors.white,
     },
     buttons: {
-      marginTop: 50,
       paddingHorizontal: 26,
       alignItems: 'center',
     },
@@ -46,8 +42,8 @@ const useStyles = () => {
     },
     signupTextContainer: {
       flexDirection: 'row',
-      alignSelf: 'center',
-      marginVertical: 30,
+      justifyContent: 'center',
+      paddingVertical: 30,
     },
     signupTextButton: {
       marginRight: 5,

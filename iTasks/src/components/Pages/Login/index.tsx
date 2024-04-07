@@ -5,11 +5,10 @@ import { useTranslation } from 'react-i18next';
 import {ThemeContext} from '../../../storage/context';
 import useStyles from './styles';
 import TextComponent from '../../Atoms/Text';
-import ButtonComponent from '../../Atoms/Button';
 import TextButton from '../../Atoms/TextButton';
 import ReturnButton from '../../Atoms/ReturnButton';
 import SocialNetworkButton from '../../Atoms/SocialNetworkButton';
-import TextInputComponent from '../../Atoms/TextInput';
+import LoginForm from '../../Molecules/LoginForm';
 
 const Login: React.FC = () => {
   const {colors} = useContext(ThemeContext);
@@ -27,33 +26,14 @@ const Login: React.FC = () => {
           {t('Login.Welcome back')}
         </TextComponent>
 
-        <TextComponent color={colors.white}>
+        <TextComponent styles={style.subtitle}>
           {t('Login.Get back to your task menagement')}
         </TextComponent>
       </View>
 
-      <View style={style.form}>
-        <TextComponent color={colors.white}>
-          {t('Login.Email')}
-        </TextComponent>
-        <TextInputComponent type='email' color={colors.white} />
-        
-        <TextComponent color={colors.white}>
-        {t('Login.Password')}
-        </TextComponent>
-        <TextInputComponent type='password' color={colors.white} />
-      </View>
+      <LoginForm />
 
       <View style={style.buttons}>
-        <ButtonComponent 
-          flat 
-          onPress={() => {}} 
-          color={colors.white} 
-          textColor={colors.black}
-        >
-          {t('Login.Login')}
-        </ButtonComponent>
-
         <TextComponent styles={style.middleTextButtons}>
           {t('Login.Or')}
         </TextComponent>

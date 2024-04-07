@@ -7,7 +7,6 @@ import useStyles from './styles';
 
 const TextInputComponent: React.FC<ITextInputProps> = (props) => {
   const style = useStyles({color: props.color});
-  const [text, setText] = useState('');
   const [hideText, setHideText] = useState(props.type == 'password');
 
   const setIcon = () => {
@@ -17,7 +16,7 @@ const TextInputComponent: React.FC<ITextInputProps> = (props) => {
       case 'password':
         return 'lock';
       default:
-        return 'question-mark';
+        return 'question';
     }
   };
 
@@ -29,8 +28,8 @@ const TextInputComponent: React.FC<ITextInputProps> = (props) => {
           : null
       }
       <TextInput
-        defaultValue={text}
-        onChangeText={newText => setText(newText)}
+        defaultValue={props.value}
+        onChangeText={newText => props.setValue(newText)}
         autoComplete={props.type == 'email' ? 'email' : undefined}
         secureTextEntry={hideText}
         style={style.text}
