@@ -17,7 +17,7 @@ const Signup: React.FC<any> = ({ navigation }) => {
   return (
     <ScrollView style={style.container}>
       <View style={style.goBack}>
-        <ReturnButton />
+        <ReturnButton navigation={navigation} />
       </View>
 
       <View style={style.titles}>

@@ -7,13 +7,13 @@ import useStyles from './styles';
 import TextComponent from '../Text';
 import { ThemeContext } from '../../../storage/context';
 
-const ReturnButton: React.FC = () => {
+const ReturnButton: React.FC<any> = ({ navigation }) => {
   const {colors} = useContext(ThemeContext);
   const style = useStyles();
   const {t} = useTranslation();
 
   return (
-    <TouchableOpacity style={style.container} onPress={() => {}}>
+    <TouchableOpacity style={style.container} onPress={() => navigation.navigate('Initial')}>
       <Icon name='arrow-back-ios' color={colors.white} />
       <TextComponent styles={style.text}>
         {t('Go back')}
