@@ -14,8 +14,8 @@ export default function App() {
       <SafeAreaView style={{flex: 1}}>
         <StatusBar backgroundColor={themes.light.primaryColor} />
         {/* <InitialScreen /> */}
-        <Login />
-        {/* <Signup /> */}
+        {/* <Login /> */}
+        <Signup />
       </SafeAreaView>
     </ThemeProvider>
   );

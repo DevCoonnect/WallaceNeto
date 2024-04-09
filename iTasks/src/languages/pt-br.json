@@ -1,6 +1,14 @@
 {
   "translation": {
     "Go back": "Voltar",
+    "Errors": {
+      "Something went wrong": "Algo deu errado",
+      "Please fill all the fields!": "Por favor, preencha todos os campos!",
+      "Name must have at least 4 characters": "Nome precisa ter pelo menos 4 caracteres",
+      "Invalid email": "E-mail inválido",
+      "Password must have at least 6 characters": "A senha deve possuir pelo menos 6 caracteres",
+      "Passwords must match": "As senhas devem ser iguais"
+    },
     "Login": {
       "Welcome back": "Bem-vindo de volta",
       "Get back to your task menagement": "Volte a gerenciar suas tarefas",

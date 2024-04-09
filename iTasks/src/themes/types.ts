@@ -9,4 +9,7 @@ export type ITheme = {
 
   white: string;
   black: string;
+  grey: string,
+  error: string,
+  sucess: string,
 };

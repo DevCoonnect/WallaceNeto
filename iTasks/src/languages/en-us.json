@@ -1,6 +1,14 @@
 {
   "translation": {
     "Go back": "Go back",
+    "Errors": {
+      "Something went wrong": "Something went wrong",
+      "Please fill all the fields!": "Please fill all the fields!",
+      "Name must have at least 4 characters": "Name must have at least 4 characters",
+      "Invalid email": "Invalid email",
+      "Password must have at least 6 characters": "Password must have at least 6 characters",
+      "Passwords must match": "Passwords must match"
+    },
     "Login": {
       "Welcome back": "Welcome back",
       "Get back to your task menagement": "Get back to your task menagement",

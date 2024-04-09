@@ -11,4 +11,7 @@ export const dark: ITheme = {
 
   white: '#FFF',
   black: '#000',
+  grey: '#C0BDBD',
+  error: '#C62828',
+  sucess: '#6BDB09',
 };
