@@ -9,7 +9,7 @@ import TextButton from '../../Atoms/TextButton';
 import ReturnButton from '../../Atoms/ReturnButton';
 import SignupForm from '../../Molecules/AuthForms/SignupForm';
 
-const Signup: React.FC = () => {
+const Signup: React.FC<any> = ({ navigation }) => {
   const {colors} = useContext(ThemeContext);
   const style = useStyles();
   const {t} = useTranslation();
@@ -37,7 +37,7 @@ const Signup: React.FC = () => {
           {t('Signup.Has an acount?')}
         </TextComponent>
 
-        <TextButton onPress={() => {}}>
+        <TextButton onPress={() => navigation.navigate('Login')}>
           <TextComponent color={colors.white}>
             {t('Signup.Login')}
           </TextComponent>
