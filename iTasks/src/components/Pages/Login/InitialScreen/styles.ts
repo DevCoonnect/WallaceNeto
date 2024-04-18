@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
 import { useContext } from 'react';
-import { ThemeContext } from '../../../storage/context';
+import { ThemeContext } from '../../../../storage/context';
 
 export const useStyles = () => {
   const {colors} = useContext(ThemeContext);

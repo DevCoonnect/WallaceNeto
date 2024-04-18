@@ -2,14 +2,14 @@ import React, { useContext, useState } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import {ThemeContext} from '../../../../storage/context';
-import useStyles from '../styles';
-import { onSubmit } from './lib';
+import {ThemeContext} from '../../../../../../storage/context';
+import useStyles from './styles';
 
-import TextInputComponent from '../../../Atoms/TextInput';
-import ButtonComponent from '../../../Atoms/Button';
-import AlertComponent from '../../../Atoms/Alert';
-import TextComponent from '../../../Atoms/Text';
+import TextInputComponent from '../../../../../Atoms/TextInput';
+import ButtonComponent from '../../../../../Atoms/Button';
+import AlertComponent from '../../../../../Atoms/Alert';
+import TextComponent from '../../../../../Atoms/Text';
+import { validateFields } from './library';
 
 const SignupForm: React.FC = () => {
   const {colors} = useContext(ThemeContext);
@@ -22,6 +22,18 @@ const SignupForm: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [alertVisibility, setAlertVisibility] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+
+  const handleOnSignup = () => {
+    const nameFix = name.trim();
+    const emailFix = email.trim().toLowerCase();
+    let [error, errorMsg] = validateFields(nameFix, emailFix, password, confirmPassword);
+  
+    if (error) {
+      // showErrorAlert(errorMsg.toString(), props);
+    } else {
+      console.log('Name: ' + nameFix + '\n' + 'Email: ' + emailFix + '\n' + 'Password: ' + password);
+    }
+  }
 
   return (
     <>
@@ -69,7 +81,7 @@ const SignupForm: React.FC = () => {
         <View style={style.submitButton}>
           <ButtonComponent 
             flat 
-            onPress={() => onSubmit({name, email, password, confirmPassword, setAlertVisibility, setErrorMsg})} 
+            onPress={handleOnSignup} 
             color={colors.white} 
             textColor={colors.black}
           >

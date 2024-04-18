@@ -32,7 +32,12 @@
       "Login": "Entrar"
     },
     "HomeScreen": {
-      "Title": "Olá, {{user}}"
+      "Title": "Olá, {{user}}",
+      "CurrentDate": "dddd, D [de] MMMM"
+    },
+    "Settings": {
+      "Change theme": "Trocar tema",
+      "Logout": "Deslogar"
     }
   }
 }

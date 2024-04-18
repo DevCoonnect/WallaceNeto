@@ -2,23 +2,33 @@ import React, { useContext, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import {ThemeContext} from '../../../storage/context';
+import {ThemeContext} from '../../../../storage/context';
 import useStyles from './styles';
-import TextComponent from '../../Atoms/Text';
-import TextButton from '../../Atoms/TextButton';
-import ReturnButton from '../../Atoms/ReturnButton';
-import SocialNetworkButton from '../../Atoms/SocialNetworkButton';
-import LoginForm from '../../Molecules/AuthForms/LoginForm';
+import TextComponent from '../../../Atoms/Text';
+import TextButton from '../../../Atoms/TextButton';
+import ReturnButton from '../../../Atoms/ReturnButton';
+import SocialNetworkButton from '../../../Atoms/SocialNetworkButton';
+import LoginForm from './components/Form';
 
-const Login: React.FC<any> = ({ navigation }) => {
+const Signin: React.FC<any> = ({ navigation }) => {
   const {colors} = useContext(ThemeContext);
   const style = useStyles();
   const {t} = useTranslation();
 
+  const showErrorAlert = () => {
+    // setErrorMsg(errorMsg);
+    // setAlertVisibility(true);
+  
+    // setTimeout(() => {
+    //   setAlertVisibility(false);
+    //   setErrorMsg("");
+    // }, 2000);
+  } 
+
   return (
     <ScrollView style={style.container}>
       <View style={style.goBack}>
-        <ReturnButton navigation={navigation} />
+        <ReturnButton onPress={() => navigation.navigate('initial')} color={colors.white} />
       </View>
 
       <View style={style.titles}>
@@ -31,7 +41,7 @@ const Login: React.FC<any> = ({ navigation }) => {
         </TextComponent>
       </View>
 
-      <LoginForm />
+      <LoginForm navigation={navigation} />
 
       <View style={style.buttons}>
         <TextComponent styles={style.middleTextButtons}>
@@ -49,7 +59,7 @@ const Login: React.FC<any> = ({ navigation }) => {
           {t('Login.Don\'t have an account?')}
         </TextComponent>
 
-        <TextButton onPress={() => navigation.navigate('Signup')}>
+        <TextButton onPress={() => navigation.navigate('signup')}>
           <TextComponent color={colors.white}>
             {t('Login.Signup')}
           </TextComponent>
@@ -59,4 +69,4 @@ const Login: React.FC<any> = ({ navigation }) => {
   );
 }
 
-export default Login;
+export default Signin;

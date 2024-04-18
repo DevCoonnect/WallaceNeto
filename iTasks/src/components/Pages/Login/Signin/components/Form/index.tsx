@@ -2,17 +2,17 @@ import React, { useContext, useState } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import {ThemeContext} from '../../../../storage/context';
-import useStyles from '../styles';
+import {ThemeContext} from '../../../../../../storage/context';
+import useStyles from './styles';
 import { onSubmit } from './lib';
 
-import TextComponent from '../../../Atoms/Text';
-import TextInputComponent from '../../../Atoms/TextInput';
-import TextButton from '../../../Atoms/TextButton';
-import ButtonComponent from '../../../Atoms/Button';
-import AlertComponent from '../../../Atoms/Alert';
+import TextComponent from '../../../../../Atoms/Text';
+import TextInputComponent from '../../../../../Atoms/TextInput';
+import TextButton from '../../../../../Atoms/TextButton';
+import ButtonComponent from '../../../../../Atoms/Button';
+import AlertComponent from '../../../../../Atoms/Alert';
 
-const LoginForm: React.FC = () => {
+const LoginForm: React.FC<any> = ({ navigation }) => {
   const {colors} = useContext(ThemeContext);
   const style = useStyles();
   const {t} = useTranslation();
@@ -56,7 +56,15 @@ const LoginForm: React.FC = () => {
         <View style={style.submitButton}>
           <ButtonComponent 
             flat 
-            onPress={() => onSubmit({email, password, setAlertVisibility, setErrorMsg})} 
+            onPress={() => 
+              onSubmit({
+                email, 
+                password, 
+                setAlertVisibility, 
+                setErrorMsg, 
+                navigate: () => navigation.navigate('Home')
+              })
+            } 
             color={colors.white} 
             textColor={colors.black}
           >

@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import {useContext} from 'react';
 import {ThemeContext} from '../../../storage/context';
 
-const useStyles = () => {
+const useStyles = (color: string) => {
   const {colors} = useContext(ThemeContext);
 
   return StyleSheet.create({
@@ -11,7 +11,7 @@ const useStyles = () => {
       alignItems: 'center',
     },
     text: {
-      color: colors.white,
+      color: color || colors.textPrimaryColor,
       marginLeft: 5,
       fontSize: 20,
     },

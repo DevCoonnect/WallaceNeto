@@ -3,6 +3,7 @@ import React from "react";
 type LoginProps = {
   email: string;
   password: string;
+  navigate: Function;
 
   setErrorMsg: React.Dispatch<React.SetStateAction<string>>;
   setAlertVisibility: React.Dispatch<React.SetStateAction<boolean>>;
@@ -14,6 +15,7 @@ const onSubmit = (props: LoginProps) => {
     showErrorAlert(errorMsg.toString(), props);
   } else {
     console.log('Email: ' + props.email + '\n' + 'Password: ' + props.password);
+    props.navigate();    
   }
 }
 
