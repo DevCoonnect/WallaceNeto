@@ -1,3 +1,1 @@
-import { IAvatarProps } from "./IAvatarProps";
-
-export type { IAvatarProps };
+export * from './IAvatarProps';

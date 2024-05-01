@@ -1,8 +1,10 @@
-import {StyleSheet} from 'react-native';
-import {useContext} from 'react';
-import {ThemeContext} from '../../../storage/context';
+import { StyleSheet } from 'react-native';
+import { useContext } from 'react';
 
-const useStyles = (color: string) => {
+import { ThemeContext } from '../../../storage/context';
+import { IReturnButtonStyle } from './types';
+
+const useStyles = ({color}: IReturnButtonStyle) => {
   const {colors} = useContext(ThemeContext);
 
   return StyleSheet.create({

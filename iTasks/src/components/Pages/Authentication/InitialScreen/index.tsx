@@ -26,20 +26,22 @@ const InitialScreen: React.FC<any> = ({ navigation }) => {
         </View>
 
         <View style={styles.buttonsContainer}>
-          <ButtonComponent 
-            outlined 
+          <ButtonComponent
+            rounded
+            outlined
             color={colors.white} 
             onPress={() => navigation.navigate('signup')}
           >
-            {t('Login.Signup')}
+            {t('Signin.Signup')}
           </ButtonComponent>
 
-          <ButtonComponent 
+          <ButtonComponent
+            rounded
             color={colors.white} 
             textColor={colors.black} 
             onPress={() => navigation.navigate('signin')}
           >
-            {t('Login.Login')}
+            {t('Signin.Signin')}
           </ButtonComponent>
 
         </View>

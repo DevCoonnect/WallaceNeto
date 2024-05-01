@@ -7,20 +7,20 @@ import useStyles from './styles';
 import TextComponent from '../Text';
 
 const ButtonComponent: React.FC<IButtonProps> = (props) => {
+  const {children, onPress, outlined, color, rounded, textColor} = {...props};
+
   const {colors} = useContext(ThemeContext);
-  const buttonColor = props.color || colors.primaryColor
-  const style = useStyles({color: buttonColor});
+  const buttonColor = color || colors.primaryColor
+  const style = useStyles({color: buttonColor , rounded, outlined});
 
   return (
     <TouchableOpacity 
-      style={[
-        (props.outlined ? style.outlinedButton : style.button), 
-        (props.flat ? style.flat : null)
-      ]}
-      onPress={props.onPress}
+      style={style.button}
+      onPress={onPress}
+      activeOpacity={0.7}
     >
-      <TextComponent bold color={props.textColor || (props.outlined ? buttonColor : colors.white)}>
-        {props.children}
+      <TextComponent bold color={textColor || (outlined ? buttonColor : colors.white)}>
+        {children}
       </TextComponent>
     </TouchableOpacity>
   );

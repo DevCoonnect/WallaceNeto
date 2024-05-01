@@ -1,4 +1,2 @@
-import { IAlertStyle } from "./IAlertStyles";
-import { IAlertProps } from "./IAlertProps";
-
-export type { IAlertStyle, IAlertProps };
+export * from './IAlertProps';
+export * from './IAlertStyles';

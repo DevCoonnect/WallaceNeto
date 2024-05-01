@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Modal } from 'react-native';
 
-import useStyles from './style';
+import useStyles from './styles';
 import { IAlertProps } from './types';
 
 const AlertComponent: React.FC<IAlertProps> = ({children, visibility, type, color}) => {

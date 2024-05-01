@@ -7,12 +7,13 @@ import { IAvatarProps } from './types';
 
 const Avatar: React.FC<IAvatarProps> = ({ userName }) => {
   const style = useStyles();
-
+  const name = userName.split(' ');
+  
   return (
     <View>
       <View style={style.background}>
         <TextComponent styles={style.title}>
-          {`${userName.split(' ')[0][0]}${userName.split(' ')[1][0]}`}
+          {name[0][0]}{name[1] ? name[1][0] : null}
         </TextComponent>
       </View>
     </View>

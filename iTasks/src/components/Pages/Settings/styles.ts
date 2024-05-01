@@ -13,6 +13,9 @@ const useStyles = () => {
     header: {
       padding: 25,
     },
+    avatarContainer: {
+      alignItems: 'center',
+    },
     userNameText: {
       textAlign: 'center',
       marginTop: 20,

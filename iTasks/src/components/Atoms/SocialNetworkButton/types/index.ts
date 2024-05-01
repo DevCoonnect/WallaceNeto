@@ -1,4 +1,2 @@
-import { ISocialNetworkButtonProps } from "./ISocialNetworkButtonProps";
-import { ISocialNetworkButtonStyle } from "./ISocialNetworkButtonStyle";
-
-export type { ISocialNetworkButtonProps, ISocialNetworkButtonStyle };
+export * from './ISocialNetworkButtonProps';
+export * from './ISocialNetworkButtonStyle';

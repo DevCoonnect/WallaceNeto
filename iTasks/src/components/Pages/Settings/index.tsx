@@ -15,7 +15,7 @@ const Settings: React.FC<any> = ({ navigation }) => {
   const style = useStyles();
   const {t} = useTranslation();
 
-  const userName = 'Lucas Calabreso';
+  const userName = 'Test Area';
 
   return (
     <>
@@ -23,7 +23,9 @@ const Settings: React.FC<any> = ({ navigation }) => {
       <ScrollView style={style.container}>
         <View style={style.header}>
           <ReturnButton onPress={() => navigation.goBack()} />
-          <Avatar userName={userName} />
+          <View style={style.avatarContainer}>
+            <Avatar userName={userName} />
+          </View>
           <TextComponent styles={style.userNameText}>
             {userName}
           </TextComponent>
@@ -38,18 +40,16 @@ const Settings: React.FC<any> = ({ navigation }) => {
               <Switch onChange={() => {}} color={colors.primaryColor} />
             </View>
           </View>
-
         </View>
-        
+
         <View style={style.bottom}>
-          <ButtonComponent 
-            flat
-            onPress={() => navigation.navigate('Initial')}
-            color={colors.secondaryColor}
+          <ButtonComponent
+            outlined
+            rounded
+            onPress={() => {}}
+            color={colors.error}
           >
-            <TextComponent color={colors.white}>
-              {t('Settings.Logout')}
-            </TextComponent>
+            {t('Settings.Logout')}
           </ButtonComponent>
         </View>
       </ScrollView>

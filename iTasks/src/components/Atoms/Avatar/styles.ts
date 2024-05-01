@@ -8,15 +8,16 @@ const useStyles = () => {
   return StyleSheet.create({
     background: {
       backgroundColor: colors.primaryColor,
-      alignSelf: 'center',
-      paddingHorizontal: 22,
-      paddingVertical: 20,
+      justifyContent: 'center',
+      height: 69,
+      width: 69,
       borderRadius: 40,
     },
     title: {
       fontWeight: 'bold',
       fontSize: 24,
       color: colors.white,
+      alignSelf: 'center',
     },
   });
 };

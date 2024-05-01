@@ -1,4 +1,2 @@
-import { ITextInputProps } from "./ITextInputProps";
-import { ITextButtonStyle } from "../../TextButton/types";
-
-export type { ITextInputProps, ITextButtonStyle };
+export * from './ITextInputProps';
+export * from './ITextInputStyle';

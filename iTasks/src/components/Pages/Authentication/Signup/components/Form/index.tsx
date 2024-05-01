@@ -4,30 +4,53 @@ import { useTranslation } from 'react-i18next';
 
 import {ThemeContext} from '../../../../../../storage/context';
 import useStyles from './styles';
-import { onSubmit } from './lib';
 
-import TextComponent from '../../../../../Atoms/Text';
 import TextInputComponent from '../../../../../Atoms/TextInput';
-import TextButton from '../../../../../Atoms/TextButton';
 import ButtonComponent from '../../../../../Atoms/Button';
 import AlertComponent from '../../../../../Atoms/Alert';
+import TextComponent from '../../../../../Atoms/Text';
+import { validateFields } from './library';
 
-const LoginForm: React.FC<any> = ({ navigation }) => {
+const SignupForm: React.FC = () => {
   const {colors} = useContext(ThemeContext);
   const style = useStyles();
   const {t} = useTranslation();
 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [alertVisibility, setAlertVisibility] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+
+  const handleOnSignup = () => {
+    const nameFix = name.trim();
+    const emailFix = email.trim().toLowerCase();
+    let [error, errorMsg] = validateFields(nameFix, emailFix, password, confirmPassword);
+  
+    if (error) {
+      // showErrorAlert(errorMsg.toString(), props);
+    } else {
+      console.log('Name: ' + nameFix + '\n' + 'Email: ' + emailFix + '\n' + 'Password: ' + password);
+    }
+  }
 
   return (
     <>
       <View style={style.container}>
         <View style={style.field}>
           <TextInputComponent
-            placeholder={t('Login.Email')}
+            placeholder={t('Signup.Name')}
+            value={name} 
+            setValue={setName} 
+            icon='user' 
+            color={colors.white}
+          />
+        </View>
+        
+        <View style={style.field}>
+          <TextInputComponent 
+            placeholder={t('Signup.Email')}
             value={email} 
             setValue={setEmail} 
             type='email' 
@@ -37,7 +60,7 @@ const LoginForm: React.FC<any> = ({ navigation }) => {
         
         <View style={style.field}>
           <TextInputComponent
-            placeholder={t('Login.Password')}
+            placeholder={t('Signup.Password')}
             value={password} 
             setValue={setPassword} 
             type='password' 
@@ -45,30 +68,23 @@ const LoginForm: React.FC<any> = ({ navigation }) => {
           />
         </View>
 
-        <View style={style.rememberPasswordContainer}>
-          <TextButton onPress={() => {}}>
-            <TextComponent styles={style.rememberPassword}>
-              {t('Login.Remember my password')}
-            </TextComponent>
-          </TextButton>        
+        <View style={style.field}>
+          <TextInputComponent
+            placeholder={t('Signup.Confirm password')}
+            value={confirmPassword} 
+            setValue={setConfirmPassword} 
+            type='password' 
+            color={colors.white}
+          />
         </View>
 
         <View style={style.submitButton}>
-          <ButtonComponent 
-            flat 
-            onPress={() => 
-              onSubmit({
-                email, 
-                password, 
-                setAlertVisibility, 
-                setErrorMsg, 
-                navigate: () => navigation.navigate('Home')
-              })
-            } 
+          <ButtonComponent
+            onPress={handleOnSignup} 
             color={colors.white} 
             textColor={colors.black}
           >
-            {t('Login.Login')}
+            {t('Signup.Signup')}
           </ButtonComponent>
         </View>
       </View>
@@ -82,4 +98,4 @@ const LoginForm: React.FC<any> = ({ navigation }) => {
   );
 }
 
-export default LoginForm;
+export default SignupForm;

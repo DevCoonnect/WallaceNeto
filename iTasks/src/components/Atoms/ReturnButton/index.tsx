@@ -8,14 +8,14 @@ import TextComponent from '../Text';
 import { ThemeContext } from '../../../storage/context';
 import { IReturnButtonProps } from './types';
 
-const ReturnButton: React.FC<IReturnButtonProps> = (props) => {
+const ReturnButton: React.FC<IReturnButtonProps> = ({color, onPress}) => {
   const {colors} = useContext(ThemeContext);
-  const activeColor = props.color || colors.textPrimaryColor;
-  const style = useStyles(activeColor);
+  const activeColor = color || colors.textPrimaryColor;
+  const style = useStyles({color: activeColor});
   const {t} = useTranslation();
 
   return (
-    <TouchableOpacity style={style.container} onPress={props.onPress}>
+    <TouchableOpacity style={style.container} onPress={onPress} activeOpacity={0.7}>
       <Icon name='arrow-back-ios' color={activeColor} />
       <TextComponent styles={style.text}>
         {t('Go back')}

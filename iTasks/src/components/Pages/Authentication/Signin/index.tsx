@@ -33,11 +33,11 @@ const Signin: React.FC<any> = ({ navigation }) => {
 
       <View style={style.titles}>
         <TextComponent styles={style.mainTitle}>
-          {t('Login.Welcome back')}
+          {t('Signin.Welcome back')}
         </TextComponent>
 
         <TextComponent styles={style.subtitle}>
-          {t('Login.Get back to your task menagement')}
+          {t('Signin.Get back to your task menagement')}
         </TextComponent>
       </View>
 
@@ -45,7 +45,7 @@ const Signin: React.FC<any> = ({ navigation }) => {
 
       <View style={style.buttons}>
         <TextComponent styles={style.middleTextButtons}>
-          {t('Login.Or')}
+          {t('Signin.Or')}
         </TextComponent>
         
         <View style={style.socialNetworksButtons}>
@@ -56,12 +56,12 @@ const Signin: React.FC<any> = ({ navigation }) => {
 
       <View style={style.signupTextContainer}>
         <TextComponent styles={style.signupTextButton}>
-          {t('Login.Don\'t have an account?')}
+          {t('Signin.Don\'t have an account?')}
         </TextComponent>
 
         <TextButton onPress={() => navigation.navigate('signup')}>
           <TextComponent color={colors.white}>
-            {t('Login.Signup')}
+            {t('Signin.Signup')}
           </TextComponent>
         </TextButton>
       </View>

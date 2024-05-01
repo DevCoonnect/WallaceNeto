@@ -5,7 +5,7 @@ export type IButtonProps = {
   children: React.ReactNode;
   onPress: (event: GestureResponderEvent) => void;
   outlined?: boolean;
-  flat?: boolean;
+  rounded?: boolean;
   color?: string;
   textColor?: string; 
 };

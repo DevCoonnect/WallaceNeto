@@ -39,7 +39,7 @@ const Signup: React.FC<any> = ({ navigation }) => {
 
         <TextButton onPress={() => navigation.navigate('signin')}>
           <TextComponent color={colors.white}>
-            {t('Signup.Login')}
+            {t('Signup.Signin')}
           </TextComponent>
         </TextButton>
       </View>

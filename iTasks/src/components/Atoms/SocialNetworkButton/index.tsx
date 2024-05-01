@@ -11,7 +11,7 @@ const SocialNetworkButton: React.FC<ISocialNetworkButtonProps> = ({color, type})
   const style = useStyles({color});
 
   return (
-    <TouchableOpacity onPress={() => {}} style={style.button}>
+    <TouchableOpacity onPress={() => {}} style={style.button} activeOpacity={0.7}>
       <Icon name={type} type='font-awesome' color={color || colors.textPrimaryColor} />
       <Text style={style.text}>
         {type.charAt(0).toUpperCase() + type.slice(1)}

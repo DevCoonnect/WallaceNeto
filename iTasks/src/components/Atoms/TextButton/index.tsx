@@ -9,7 +9,7 @@ const TextButton: React.FC<ITextButtonProps> = (props) => {
   const style = useStyles({color: props.color});
 
   return (
-    <TouchableOpacity onPress={props.onPress}>
+    <TouchableOpacity onPress={props.onPress} activeOpacity={0.7}>
       <TextComponent styles={style.text}>
         {props.children}
       </TextComponent>

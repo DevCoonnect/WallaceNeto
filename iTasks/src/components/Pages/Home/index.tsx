@@ -32,7 +32,7 @@ const Home: React.FC<any> = ({ navigation }) => {
             </TextComponent>
           </View>
           <View style={style.menuButton}>
-            <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
+            <TouchableOpacity onPress={() => navigation.navigate('settings')}>
               <Icon name='sliders' type='font-awesome' color={colors.textPrimaryColor} />
             </TouchableOpacity>
           </View>

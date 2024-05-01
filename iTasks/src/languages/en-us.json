@@ -9,16 +9,16 @@
       "Password must have at least 6 characters": "Password must have at least 6 characters",
       "Passwords must match": "Passwords must match"
     },
-    "Login": {
+    "Signin": {
       "Welcome back": "Welcome back",
       "Get back to your task menagement": "Get back to your task menagement",
       "Email": "Email",
       "Password": "Password",
       "Remember my password": "Remember my password",
-      "Login": "Login",
+      "Signin": "Sign In",
       "Or": "Or",
       "Don't have an account?": "Don't have an account?",
-      "Signup": "Signup"
+      "Signup": "Register"
     },
     "Signup": {
       "Welcome": "Welcome",
@@ -27,9 +27,9 @@
       "Email": "Email",
       "Password": "Password",
       "Confirm password": "Confirm password",
-      "Signup": "Signup",
+      "Signup": "Register",
       "Has an acount?": "Has an account?",
-      "Login": "Login"
+      "Signin": "Sign In"
     },
     "HomeScreen": {
       "Title": "Hello, {{user}}",

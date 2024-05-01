@@ -1,3 +1,2 @@
-import { IReturnButtonProps } from "./IReturnButtonProps";
-
-export type { IReturnButtonProps }
+export * from './IReturnButtonProps';
+export * from './IReturnButtonStyle';

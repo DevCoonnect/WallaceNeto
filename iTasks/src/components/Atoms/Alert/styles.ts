@@ -1,7 +1,7 @@
-import {StyleSheet} from 'react-native';
-import {useContext} from 'react';
+import { StyleSheet } from 'react-native';
+import { useContext } from 'react';
 
-import {ThemeContext} from '../../../storage/context';
+import { ThemeContext } from '../../../storage/context';
 import { IAlertStyle } from './types';
 
 const useStyles = ({type, color}: IAlertStyle) => {

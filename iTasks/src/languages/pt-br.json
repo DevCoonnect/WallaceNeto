@@ -9,13 +9,13 @@
       "Password must have at least 6 characters": "A senha deve possuir pelo menos 6 caracteres",
       "Passwords must match": "As senhas devem ser iguais"
     },
-    "Login": {
+    "Signin": {
       "Welcome back": "Bem-vindo de volta",
       "Get back to your task menagement": "Volte a gerenciar suas tarefas",
       "Email": "E-mail",
       "Password": "Senha",
       "Remember my password": "Lembrar minha senha",
-      "Login": "Entrar",
+      "Signin": "Entrar",
       "Or": "Ou",
       "Don't have an account?": "Não tem conta?",
       "Signup": "Cadastre-se"
@@ -29,7 +29,7 @@
       "Confirm password": "Repetir senha",
       "Signup": "Criar conta",
       "Has an acount?": "Já é cadastrado?",
-      "Login": "Entrar"
+      "Signin": "Entrar"
     },
     "HomeScreen": {
       "Title": "Olá, {{user}}",

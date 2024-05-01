@@ -39,7 +39,7 @@ const TextInputComponent: React.FC<ITextInputProps> = (props) => {
       {
         props.type == 'password'
           ? (
-            <TouchableOpacity onPress={() => setHideText(!hideText)}>
+            <TouchableOpacity onPress={() => setHideText(!hideText)} activeOpacity={0.7}>
               <Icon type='font-awesome' name={hideText ? 'eye' : 'eye-slash'} color={props.color} />
             </TouchableOpacity>
           ) : undefined

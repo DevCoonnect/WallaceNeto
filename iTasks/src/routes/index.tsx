@@ -1,12 +1,14 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
-import LoginRoutes from './login';
+import AuthenticationRoutes from './authentication';
+import HomeRoutes from './home';
 
 const Routes: React.FC = () => {
   return (
     <NavigationContainer>
-      <LoginRoutes />
+      <AuthenticationRoutes />
+      {/* <HomeRoutes /> */}
     </NavigationContainer>
   )
 }
