@@ -61,7 +61,7 @@ const LoginForm: React.FC<any> = ({ navigation }) => {
                 password, 
                 setAlertVisibility, 
                 setErrorMsg, 
-                navigate: () => navigation.navigate('Home')
+                navigate: () => navigation.navigate('main')
               })
             } 
             color={colors.white} 

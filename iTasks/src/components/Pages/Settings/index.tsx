@@ -46,7 +46,7 @@ const Settings: React.FC<any> = ({ navigation }) => {
           <ButtonComponent
             outlined
             rounded
-            onPress={() => {}}
+            onPress={() => navigation.navigate('authentication')}
             color={colors.error}
           >
             {t('Settings.Logout')}

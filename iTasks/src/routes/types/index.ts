@@ -2,8 +2,8 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 // Type Stack
 export type NativeStackParamList = {
-  login: undefined;
-  tab: undefined;
+  authentication: undefined;
+  main: undefined;
 };
 
 // Type Navigation
