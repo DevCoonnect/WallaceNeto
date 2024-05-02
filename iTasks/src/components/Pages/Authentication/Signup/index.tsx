@@ -8,6 +8,7 @@ import TextComponent from '../../../Atoms/Text';
 import TextButton from '../../../Atoms/TextButton';
 import ReturnButton from '../../../Atoms/ReturnButton';
 import Form from './components/Form';
+import Header from '../../../Atoms/Header';
 
 const Signup: React.FC<any> = ({ navigation }) => {
   const {colors} = useContext(ThemeContext);
@@ -16,9 +17,12 @@ const Signup: React.FC<any> = ({ navigation }) => {
 
   return (
     <ScrollView style={style.container}>
-      <View style={style.goBack}>
-        <ReturnButton onPress={() => navigation.navigate('initial')} color={colors.white} />
-      </View>
+      <Header 
+        color={colors.primaryColor}
+        leftComponent={
+          <ReturnButton onPress={() => navigation.navigate('initial')} color={colors.white} />
+        }
+      />
 
       <View style={style.titles}>
         <TextComponent styles={style.mainTitle}>

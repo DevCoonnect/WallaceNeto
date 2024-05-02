@@ -10,13 +10,9 @@ const useStyles = () => {
       flex: 1,
       backgroundColor: colors.primaryColor,
     },
-    goBack: {
-      marginTop: 30,
-      marginLeft: 24,
-    },
     titles: {
       alignItems: 'center',
-      marginTop: 40,
+      marginTop: 10,
     },
     mainTitle: {
       fontWeight: '600',

@@ -9,6 +9,7 @@ import TextComponent from '../../Atoms/Text';
 import ButtonComponent from '../../Atoms/Button';
 import Avatar from '../../Atoms/Avatar';
 import ReturnButton from '../../Atoms/ReturnButton';
+import Header from '../../Atoms/Header';
 
 const Settings: React.FC<any> = ({ navigation }) => {
   const {colors} = useContext(ThemeContext);
@@ -21,8 +22,9 @@ const Settings: React.FC<any> = ({ navigation }) => {
     <>
       <StatusBar backgroundColor={colors.primaryBackground} barStyle='dark-content' />
       <ScrollView style={style.container}>
+        <Header onReturn={() => navigation.goBack()} />
+
         <View style={style.header}>
-          <ReturnButton onPress={() => navigation.goBack()} />
           <View style={style.avatarContainer}>
             <Avatar userName={userName} />
           </View>
