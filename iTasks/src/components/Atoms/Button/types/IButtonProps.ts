@@ -7,5 +7,6 @@ export type IButtonProps = {
   outlined?: boolean;
   rounded?: boolean;
   color?: string;
-  textColor?: string; 
+  textColor?: string;
+  disabled?: boolean;
 };

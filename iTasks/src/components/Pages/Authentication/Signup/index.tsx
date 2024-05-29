@@ -7,7 +7,7 @@ import useStyles from './styles';
 import TextComponent from '../../../Atoms/Text';
 import TextButton from '../../../Atoms/TextButton';
 import ReturnButton from '../../../Atoms/ReturnButton';
-import Form from './components/Form';
+import { SignupForm } from './components';
 import Header from '../../../Atoms/Header';
 
 const Signup: React.FC<any> = ({ navigation }) => {
@@ -34,7 +34,7 @@ const Signup: React.FC<any> = ({ navigation }) => {
         </TextComponent>
       </View>
 
-      <Form />
+      <SignupForm />
 
       <View style={style.loginTextContainer}>
         <TextComponent styles={style.loginTextButton}>

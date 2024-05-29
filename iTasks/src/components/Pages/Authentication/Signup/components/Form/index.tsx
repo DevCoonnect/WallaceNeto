@@ -11,7 +11,7 @@ import AlertComponent from '../../../../../Atoms/Alert';
 import TextComponent from '../../../../../Atoms/Text';
 import { validateFields } from './library';
 
-const SignupForm: React.FC = () => {
+export const SignupForm: React.FC = () => {
   const {colors} = useContext(ThemeContext);
   const style = useStyles();
   const {t} = useTranslation();
@@ -97,5 +97,3 @@ const SignupForm: React.FC = () => {
     </>
   );
 }
-
-export default SignupForm;

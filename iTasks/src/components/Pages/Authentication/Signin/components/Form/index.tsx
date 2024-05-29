@@ -2,25 +2,22 @@ import React, { useContext, useState } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import {ThemeContext} from '../../../../../../storage/context';
+import { ThemeContext } from '../../../../../../storage/context';
 import useStyles from './styles';
-import { onSubmit } from './lib';
+import { validateFields } from './library';
 
 import TextComponent from '../../../../../Atoms/Text';
 import TextInputComponent from '../../../../../Atoms/TextInput';
 import TextButton from '../../../../../Atoms/TextButton';
 import ButtonComponent from '../../../../../Atoms/Button';
-import AlertComponent from '../../../../../Atoms/Alert';
 
-const LoginForm: React.FC<any> = ({ navigation }) => {
+export const SigninForm: React.FC<any> = ({ navigation }) => {
   const {colors} = useContext(ThemeContext);
   const style = useStyles();
   const {t} = useTranslation();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [alertVisibility, setAlertVisibility] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
 
   return (
     <>
@@ -55,30 +52,15 @@ const LoginForm: React.FC<any> = ({ navigation }) => {
 
         <View style={style.submitButton}>
           <ButtonComponent
-            onPress={() => 
-              onSubmit({
-                email, 
-                password, 
-                setAlertVisibility, 
-                setErrorMsg, 
-                navigate: () => navigation.navigate('main')
-              })
-            } 
+            onPress={() => navigation.navigate('main')} 
             color={colors.white} 
             textColor={colors.black}
+            disabled={validateFields({email, password})}
           >
             {t('Signin.Signin')}
           </ButtonComponent>
         </View>
       </View>
-
-      <AlertComponent type='error' visibility={alertVisibility}>
-        <TextComponent color={colors.white}>
-          {t(errorMsg)}
-        </TextComponent>
-      </AlertComponent>
     </>
   );
 }
-
-export default LoginForm;

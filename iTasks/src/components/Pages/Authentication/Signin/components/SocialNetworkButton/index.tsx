@@ -4,9 +4,9 @@ import { Icon } from '@rneui/base';
 
 import { ISocialNetworkButtonProps } from './types';
 import useStyles from './styles';
-import { ThemeContext } from '../../../storage/context';
+import { ThemeContext } from '../../../../../../storage/context';
 
-const SocialNetworkButton: React.FC<ISocialNetworkButtonProps> = ({color, type}) => {
+export const SocialNetworkButton: React.FC<ISocialNetworkButtonProps> = ({color, type}) => {
   const {colors} = useContext(ThemeContext);
   const style = useStyles({color});
 
@@ -19,5 +19,3 @@ const SocialNetworkButton: React.FC<ISocialNetworkButtonProps> = ({color, type})
     </TouchableOpacity>
   );
 }
-
-export default SocialNetworkButton;

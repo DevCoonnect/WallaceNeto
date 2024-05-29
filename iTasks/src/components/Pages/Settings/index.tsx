@@ -8,7 +8,6 @@ import useStyles from './styles';
 import TextComponent from '../../Atoms/Text';
 import ButtonComponent from '../../Atoms/Button';
 import Avatar from '../../Atoms/Avatar';
-import ReturnButton from '../../Atoms/ReturnButton';
 import Header from '../../Atoms/Header';
 
 const Settings: React.FC<any> = ({ navigation }) => {
@@ -16,7 +15,7 @@ const Settings: React.FC<any> = ({ navigation }) => {
   const style = useStyles();
   const {t} = useTranslation();
 
-  const userName = 'Test Area';
+  const userName = 'Lucas Calabreso';
 
   return (
     <>

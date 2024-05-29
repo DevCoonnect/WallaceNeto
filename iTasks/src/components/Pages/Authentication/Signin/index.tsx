@@ -7,24 +7,14 @@ import useStyles from './styles';
 import TextComponent from '../../../Atoms/Text';
 import TextButton from '../../../Atoms/TextButton';
 import ReturnButton from '../../../Atoms/ReturnButton';
-import SocialNetworkButton from '../../../Atoms/SocialNetworkButton';
-import LoginForm from './components/Form';
+import { SocialNetworkButton } from './components';
+import { SigninForm } from './components';
 import Header from '../../../Atoms/Header';
 
 const Signin: React.FC<any> = ({ navigation }) => {
   const {colors} = useContext(ThemeContext);
   const style = useStyles();
   const {t} = useTranslation();
-
-  const showErrorAlert = () => {
-    // setErrorMsg(errorMsg);
-    // setAlertVisibility(true);
-  
-    // setTimeout(() => {
-    //   setAlertVisibility(false);
-    //   setErrorMsg("");
-    // }, 2000);
-  } 
 
   return (
     <ScrollView style={style.container}>
@@ -45,7 +35,7 @@ const Signin: React.FC<any> = ({ navigation }) => {
         </TextComponent>
       </View>
 
-      <LoginForm navigation={navigation} />
+      <SigninForm navigation={navigation} />
 
       <View style={style.buttons}>
         <TextComponent styles={style.middleTextButtons}>
