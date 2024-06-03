@@ -12,6 +12,8 @@ export const light: ITheme = {
   white: '#FFF',
   black: '#000',
   grey: '#C0BDBD',
-  error: '#C62828',
+  error: '#E53935',
+  warn: '#FFB545',
   sucess: '#6BDB09',
+  info: '#339DF0',
 };

@@ -11,5 +11,7 @@ export type ITheme = {
   black: string;
   grey: string,
   error: string,
+  warn: string,
   sucess: string,
+  info: string,
 };
