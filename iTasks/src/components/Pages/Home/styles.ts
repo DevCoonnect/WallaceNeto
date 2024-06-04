@@ -7,6 +7,7 @@ const useStyles = () => {
 
   return StyleSheet.create({
     container: {
+      flex: 1,
       backgroundColor: colors.primaryBackground,
     },
     header: {

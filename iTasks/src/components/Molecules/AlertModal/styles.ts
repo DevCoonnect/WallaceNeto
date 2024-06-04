@@ -4,11 +4,12 @@ import { ThemeContext } from '../../../storage/context';
 
 
 const useStyles = () => {
-  const {colors} = useContext(ThemeContext);
   const {width} = useWindowDimensions();
 
   return StyleSheet.create({
     container: {
+      position: 'absolute',
+      bottom: 30,
       flexDirection: 'row',      
       height: 110,
       width: width * 0.9,

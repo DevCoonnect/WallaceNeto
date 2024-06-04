@@ -1,5 +1,7 @@
 export type IAlertModalProps = {
-  type: 'error' | 'warn' | 'success' | 'info';
+  type: string | 'error' | 'warn' | 'success' | 'info';
   title?: string;
-  content: string;
+  timer?: number,
+  onClose: () => void;
+  children: React.ReactNode;
 }
