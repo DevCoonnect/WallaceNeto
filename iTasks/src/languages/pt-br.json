@@ -1,0 +1,43 @@
+{
+  "translation": {
+    "Go back": "Voltar",
+    "Errors": {
+      "Something went wrong": "Algo deu errado",
+      "Please fill all the fields!": "Por favor, preencha todos os campos!",
+      "Name must have at least 4 characters": "Nome precisa ter pelo menos 4 caracteres",
+      "Invalid email": "E-mail inválido",
+      "Password must have at least 6 characters": "A senha deve possuir pelo menos 6 caracteres",
+      "Passwords must match": "As senhas devem ser iguais"
+    },
+    "Signin": {
+      "Welcome back": "Bem-vindo de volta",
+      "Get back to your task menagement": "Volte a gerenciar suas tarefas",
+      "Email": "E-mail",
+      "Password": "Senha",
+      "Remember my password": "Lembrar minha senha",
+      "Signin": "Entrar",
+      "Or": "Ou",
+      "Don't have an account?": "Não tem conta?",
+      "Signup": "Cadastre-se"
+    },
+    "Signup": {
+      "Welcome": "Bem-vindo",
+      "Start to menagement you tasks": "Começe a gerenciar suas tarefas",
+      "Name": "Nome",
+      "Email": "E-mail",
+      "Password": "Senha",
+      "Confirm password": "Repetir senha",
+      "Signup": "Criar conta",
+      "Has an acount?": "Já é cadastrado?",
+      "Signin": "Entrar"
+    },
+    "HomeScreen": {
+      "Title": "Olá, {{user}}",
+      "CurrentDate": "dddd, D [de] MMMM"
+    },
+    "Settings": {
+      "Change theme": "Trocar tema",
+      "Logout": "Deslogar"
+    }
+  }
+}

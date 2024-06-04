@@ -1,0 +1,43 @@
+{
+  "translation": {
+    "Go back": "Go back",
+    "Errors": {
+      "Something went wrong": "Something went wrong",
+      "Please fill all the fields!": "Please fill all the fields!",
+      "Name must have at least 4 characters": "Name must have at least 4 characters",
+      "Invalid email": "Invalid email",
+      "Password must have at least 6 characters": "Password must have at least 6 characters",
+      "Passwords must match": "Passwords must match"
+    },
+    "Signin": {
+      "Welcome back": "Welcome back",
+      "Get back to your task menagement": "Get back to your task menagement",
+      "Email": "Email",
+      "Password": "Password",
+      "Remember my password": "Remember my password",
+      "Signin": "Sign In",
+      "Or": "Or",
+      "Don't have an account?": "Don't have an account?",
+      "Signup": "Register"
+    },
+    "Signup": {
+      "Welcome": "Welcome",
+      "Start to menagement you tasks": "Start to menagement you tasks",
+      "Name": "Name",
+      "Email": "Email",
+      "Password": "Password",
+      "Confirm password": "Confirm password",
+      "Signup": "Register",
+      "Has an acount?": "Has an account?",
+      "Signin": "Sign In"
+    },
+    "HomeScreen": {
+      "Title": "Hello, {{user}}",
+      "CurrentDate": "dddd, MMMM D"
+    },
+    "Settings": {
+      "Change theme": "Change theme",
+      "Logout": "Logout"
+    }
+  }
+}
